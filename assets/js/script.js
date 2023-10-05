@@ -1,8 +1,6 @@
 const nah = document.getElementById('nah');
 const dogImage = document.getElementById('dogImage');
 
-const gender = document.getElementById('gender');
-
 var genders = ['Male', 'Female', 'Neutered Male']
 var ages = Array.from({ length: 10 - 1 + 1 }, (_, index) => 1 + index);
 var weights = Array.from({ length: 60 - 30 + 1 }, (_, index) => 30 + index);
@@ -41,3 +39,29 @@ function getRandom() {
 
 nah.addEventListener('click', getRandom);
 getRandom();
+
+// Get the modal
+var modal = document.getElementById("myPopup");
+
+// Get the button that opens the modal
+var btn = document.getElementById("adopt");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
