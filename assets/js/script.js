@@ -1,7 +1,25 @@
 const nah = document.getElementById('nah');
 const dogImage = document.getElementById('dogImage');
 
-function getRandomDog() {
+const gender = document.getElementById('gender');
+
+var genders = ['Male', 'Female', 'Neutered Male']
+var ages = Array.from({ length: 10 - 1 + 1 }, (_, index) => 1 + index);
+var weights = Array.from({ length: 60 - 30 + 1 }, (_, index) => 30 + index);
+var sounds = ['Quiet', 'Moderate', 'Loud']
+var sheddings = ['Low', 'Moderate', 'High']
+var personalities = ["Playful", "Energetic", "Loyal", "Gentle", "Intelligent", "Affectionate", "Protective", "Independent", "Calm", "Curious", "Adventurous", "Sociable", "Stubborn", "Sweet-tempered", "Easygoing", "Alert", "Confident", "Spirited", "Companionable", "Agile", "Courageous", "Sensible", "Affable", "Devoted", "Quirky"];
+var costs = Array.from({ length: 500 - 50 + 1 }, (_, index) => 50 + index);
+
+function getRandom() {
+    const randGender = Math.floor(Math.random() * genders.length)
+    const randAge = Math.floor(Math.random() * ages.length)
+    const randWeight = Math.floor(Math.random() * weights.length)
+    const randSound = Math.floor(Math.random() * sounds.length)
+    const randShedding = Math.floor(Math.random() * sheddings.length)
+    const randPersonality = Math.floor(Math.random() * personalities.length)
+    const randCost = Math.floor(Math.random() * costs.length)
+
     fetch('https://dog.ceo/api/breeds/image/random')
         .then(response => response.json())
         .then(data => {
@@ -11,7 +29,15 @@ function getRandomDog() {
         .catch(error => {
             console.error('Error fetching dog image:', error);
         });
+
+    document.getElementById('gender').innerText = 'Gender: ' + genders[randGender];
+    document.getElementById('age').innerText = 'Age: ' + ages[randAge];
+    document.getElementById('weight').innerText = 'Weight: ' + weights[randWeight] + ' lbs';
+    document.getElementById('sound').innerText = 'Sound: ' + sounds[randSound];
+    document.getElementById('shedding').innerText = 'Shedding: ' + sheddings[randShedding];
+    document.getElementById('personality').innerText = 'Personality: ' + personalities[randPersonality];
+    document.getElementById('cost').innerText = 'Cost: $' + costs[randCost];
 }
 
-nah.addEventListener('click', getRandomDog);
-getRandomDog();
+nah.addEventListener('click', getRandom);
+getRandom();
