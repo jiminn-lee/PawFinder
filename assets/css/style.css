@@ -16,11 +16,10 @@ body {
 }
 
 #quote {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
   margin-bottom: 40px;
   color: rgb(179, 179, 179);
+  user-select: none;
 }
 
 .header .material-symbols-outlined {
@@ -61,53 +60,85 @@ button {
   cursor: pointer;
 }
 
-
-
-
-
-/* The Modal (background) */
 .popup {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none;
+  position: fixed;
+  z-index: 1;
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
 }
 
-/* Modal Content/Box */
 .match {
   background-color: #242327;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   padding: 20px;
   border: 1px solid #ffffff10;
-  width: 80%; /* Could be more or less, depending on screen size */
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  width: 400px;
+  color: white;
+  border-radius: 20px;
+}
+
+.match h1 {
+  text-align: center;
+  font-size: 40px ;
+  user-select: none;
+}
+
+.match h2 {
+  color: #b3b3b3;
+  text-align: center;
+  user-select: none;
+  padding-top: 5px;
+  padding-bottom: 20px;
+}
+
+.contact {
+  font-weight: bold;
+  user-select: none;
   color: white;
 }
 
-/* The Close Button */
+.match ul {
+  line-height: 2.5;
+  user-select: text;
+  color: #8288c4;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  color: #8288c4;
+  text-decoration: none;
+}
+
 .close {
-  color: #aaa;
-  float: right;
+  color: white;
+  position: absolute;
+  top: 0px;
+  right: 15px;
   font-size: 28px;
   font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: #b3b3b3;
   text-decoration: none;
   cursor: pointer;
 }
-
-
-
-
-
 
 #dogImage {
   width: 300px;
